@@ -1,0 +1,24 @@
+<section class="row gap-3 justify-content-center">
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="tabAtual === 'Meus favoritos'" (click)="selectOption('Meus favoritos')">Meus
+        favoritos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="tabAtual === 'Mais populares'" (click)="selectOption('Mais populares')">Mais
+        populares</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="tabAtual === 'Mais vistos'" (click)="selectOption('Mais vistos')">Mais
+        vistos</a>
+    </li>
+  </ul>
+
+  
+
+  <app-lista-filme></app-lista-filme>
+
+</section>
+
+<!-- <app-paginacao></app-paginacao> -->
