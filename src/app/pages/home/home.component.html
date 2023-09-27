@@ -10,15 +10,12 @@
         populares</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [class.active]="tabAtual === 'Mais vistos'" (click)="selectOption('Mais vistos')">Mais
+      <a class="nav-link" [class.active]="tabAtual === 'Mais votados'" (click)="selectOption('Mais votados')">Mais
         vistos</a>
     </li>
   </ul>
 
-  
-
-  <app-lista-filme></app-lista-filme>
-
 </section>
 
-<!-- <app-paginacao></app-paginacao> -->
+<app-paginacao *ngIf="tabAtual !== 'Meus favoritos'" [currentPage]="paginaAtualHome" (currentPageChange)="onCurrentPageChange($event)"></app-paginacao>
+<app-lista-filme [tabAtual]="tabAtual" [paginaAtualLista]="paginaAtualHome"></app-lista-filme>

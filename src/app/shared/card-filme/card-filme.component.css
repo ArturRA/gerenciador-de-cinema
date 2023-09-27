@@ -1,0 +1,17 @@
+.app-card-filme:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.app-imagem-filme {
+  min-height: 450px;
+
+
+  @media screen and (max-width: 500px) {
+    min-height: 240px;
+  }
+
+  @media screen and (max-width: 1400px) {
+    min-height: 280px;
+  }
+}

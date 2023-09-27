@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { FilmeService } from 'src/app/services/filme.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-paginacao',
@@ -7,24 +6,14 @@ import { FilmeService } from 'src/app/services/filme.service';
   styleUrls: ['./paginacao.component.css']
 })
 export class PaginacaoComponent {
-  movies: any[] = [];
-  currentPage = 1;
-  totalPages = 40226;
+  @Input() currentPage: number = 1;
+  @Output() currentPageChange = new EventEmitter<number>();
 
-  constructor(private filmeService: FilmeService) { }
+  totalPages = 4000;
 
-  ngOnInit(): void {
-    this.fetchMovies(this.currentPage);
-  }
-
-  fetchMovies(page: number) {
-    this.filmeService.getMovies(page).subscribe((data: any) => {
-      this.movies = data.results;
-    });
-  }
-
-  onPageChange(newPage: number) {
+  updateCurrentPage(newPage: number) {
     this.currentPage = newPage;
-    this.fetchMovies(this.currentPage);
+    this.currentPageChange.emit(this.currentPage);
   }
+
 }

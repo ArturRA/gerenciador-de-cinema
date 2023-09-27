@@ -1,1 +1,39 @@
-<p>detalhes-filme works!</p>
+<div class="container d-grid gap-3 my-4">
+  <!-- Cabecalho -->
+  <div class="row">
+    <div class="d-flex align-items-center">
+      <h1 class="">{{ filme.title }}</h1>
+      <div class="ms-auto text-end">
+        <p class="">{{ filme.vote_count }} Votos</p>
+        <button class="btn btn-outline-none" (click)="atualizarFavoritos()">
+          <i class="bi bi-heart{{ filmeEstaNosFavoritos() ? '-fill' : '' }} text-warning aumentar-icone"></i>
+        </button>
+      </div>
+    </div>
+    <small id="dataLancamento">{{ filme.release_date }}</small>
+  </div>
+
+  <!-- Seção do Poster e Trailer -->
+  <div class="row gap-3" *ngIf="trailers">
+    <div class="col-lg-3">
+      <img [src]="filme.poster_path" class="img-fluid rounded-3" alt="" />
+    </div>
+    <div class="col-lg">
+      <div class="ratio ratio-21x9 h-100">
+        <iframe class="rounded-3" id="iframeTrailer" [src]="this.trailers[0].backdrop_path | safe" frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção dos generos -->
+  <div class="d-flex gap-3">
+    <span class="badge rounded-pill fs-5 px-4 py-2 bg-warning text-dark" *ngFor="let genre of filme.genres">
+      {{ genre }}</span>
+  </div>
+
+  <!-- Seção da sinopse -->
+  <div class="row">
+    <p class="fs-5"> {{ filme.overview }}</p>
+  </div>
+</div>

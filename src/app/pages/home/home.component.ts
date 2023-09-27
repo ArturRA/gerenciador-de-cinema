@@ -7,8 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   tabAtual: string = 'Meus favoritos';
+  paginaAtualHome = 1;
 
   selectOption(tabSelecionada: string): void {
     this.tabAtual = tabSelecionada;
+    this.paginaAtualHome = 1;
+  }
+
+  onCurrentPageChange(newPage: number) {
+    this.paginaAtualHome = newPage;
+    console.log("pagina home:", this.paginaAtualHome);
   }
 }

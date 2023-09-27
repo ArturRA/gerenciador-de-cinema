@@ -7,10 +7,12 @@ import { ListaFilmeComponent } from './shared/lista-filme/lista-filme.component'
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DetalhesFilmeComponent } from './pages/detalhes-filme/detalhes-filme.component';
-import { PaginacaoComponent } from './shared/paginacao/paginacao.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardFilmeComponent } from './shared/card-filme/card-filme.component';
 import { ToastrModule } from 'ngx-toastr';
+import { PaginacaoComponent } from './shared/paginacao/paginacao.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { ToastrModule } from 'ngx-toastr';
     ListaFilmeComponent,
     HomeComponent,
     DetalhesFilmeComponent,
+    CardFilmeComponent,
     PaginacaoComponent,
-    CardFilmeComponent
+    SafePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule,
 
     ToastrModule.forRoot({
       timeOut: 5000,
